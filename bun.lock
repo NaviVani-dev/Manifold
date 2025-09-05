@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "multiscope",
+      "name": "manifold",
       "dependencies": {
         "@tailwindcss/vite": "^4.1.12",
         "@tauri-apps/api": "^2",

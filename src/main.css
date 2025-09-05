@@ -2,7 +2,7 @@
 @plugin "daisyui";
 
 @plugin "daisyui/theme" {
-  name: "multiscope-dark";
+  name: "manifold-dark";
   default: false;
   prefersdark: true;
   color-scheme: "dark";

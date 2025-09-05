@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "multiscope",
+  "productName": "manifold",
   "version": "0.1.0",
-  "identifier": "com.navivani.multiscope",
+  "identifier": "com.navivani.manifold",
   "build": {
     "beforeDevCommand": "bun run dev",
     "devUrl": "http://localhost:1420",
@@ -12,9 +12,9 @@
   "app": {
     "windows": [
       {
-        "title": "multiscope",
-        "width": 800,
-        "height": 600
+        "title": "Manifold",
+        "width": 1280,
+        "height": 720
       }
     ],
     "security": {
