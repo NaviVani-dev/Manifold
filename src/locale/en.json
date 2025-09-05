@@ -1,0 +1,9 @@
+{
+  "sidebar": {
+    "home": "Home",
+    "screens": "Screens",
+    "devices": "Devices",
+    "accounts": "Accounts",
+    "settings": "Settings"
+  }
+}

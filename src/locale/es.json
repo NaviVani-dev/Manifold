@@ -1,0 +1,9 @@
+{
+  "sidebar": {
+    "home": "Inicio",
+    "screens": "Pantallas",
+    "devices": "Dispositivos",
+    "accounts": "Cuentas",
+    "settings": "Ajustes"
+  }
+}
