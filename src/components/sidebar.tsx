@@ -37,31 +37,39 @@ export function Sidebar() {
     },
   ];
   return (
-    <div className="h-full w-16 bg-base-200 flex flex-col items-center justify-between py-2 border-neutral border-r-2">
+    <div className="h-full min-w-16 max-w-16 bg-base-200 flex flex-col items-center justify-between py-2 border-neutral border-r-2">
       <div className="flex flex-col gap-2">
-        {screensTop.map((data) => (
-          <div className="tooltip tooltip-right" data-tip={data.name}>
+        {screensTop.map((data, index) => (
+          <div
+            className="tooltip tooltip-right"
+            data-tip={data.name}
+            key={index}
+          >
             <button
               onClick={() => setScreen(data.screen)}
               className={`btn btn-square text-2xl ${
                 screen == data.screen && "btn-accent"
               }`}
             >
-              <Icon className="" icon={data.icon} />
+              <Icon icon={data.icon} />
             </button>
           </div>
         ))}
       </div>
       <div className="flex flex-col-reverse gap-2">
-        {screensBottom.map((data) => (
-          <div className="tooltip tooltip-right" data-tip={data.name}>
+        {screensBottom.map((data, index) => (
+          <div
+            className="tooltip tooltip-right"
+            data-tip={data.name}
+            key={index}
+          >
             <button
               onClick={() => setScreen(data.screen)}
               className={`btn btn-square text-2xl ${
                 screen == data.screen && "btn-accent"
               }`}
             >
-              <Icon className="" icon={data.icon} />
+              <Icon icon={data.icon} />
             </button>
           </div>
         ))}
