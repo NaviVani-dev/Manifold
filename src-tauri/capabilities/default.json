@@ -15,9 +15,20 @@
           "url": "https://api.steampowered.com/"
         },
         {
+          "url": "https://cdn.fastly.steamstatic.com/"
+        },
+        {
+          "url": "https://avatars.fastly.steamstatic.com/"
+        },
+        {
           "url": "https://steamcommunity.com/"
         }
       ]
+    },
+    "fs:default",
+    {
+      "identifier": "fs:allow-appcache-write-recursive",
+      "allow": [{"path": "$APPCACHE/*"},{"path": "$APPCONFIG/*"},{"path": "$APPLOCALDATA/*"}]
     },
     "dialog:default"
   ]

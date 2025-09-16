@@ -14,17 +14,28 @@
     "no_steam_acc_tip": "If Manifold can't detect your Steam account, this may mean your user doesn't have the apropiate permissions over this user folder",
     "reload": "Reload accounts",
     "create": {
-      "new": "New account",
-      "no_passwd": "This account won't have a password assigned, your profile will be able to access every file from this user's folder.",
+      "title": "New account",
+      "no_passwd": "This account won't have a password assigned, your account will be able to access the user's folder but any future permissions may need to be fixed on the user's settings.",
       "username": "Username",
+      "username_error": "The username must not contain any symbols or spaces.",
       "folder": "Folder",
       "folder_tip": "The user's folder will be created in: {{folder}}"
     },
+    "edit": {
+      "title": "Edit username",
+      "tip": "New username..."
+    },
     "delete": {
       "title": "Delete user",
-      "description": "Are you sure you want to delete this user?",
-      "delete_folder": "Delete the user's folder:"
-    }
+      "description": "Are you sure you want to delete this user? This action is permanent.",
+      "delete_folder": "Delete the user's folder"
+    },
+    "new_acc": "New account",
+    "open_folder": "Open user folder",
+    "exec_as": "Run program as...",
+    "edit_name": "Edit username",
+    "delete_user": "Delete user",
+    "fix_perms": "Fix permissions"
   },
   "ui": {
     "cancel": "Cancel",

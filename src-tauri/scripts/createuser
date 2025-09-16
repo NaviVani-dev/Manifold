@@ -6,7 +6,11 @@ HOSTNAME="$1"
 USERNAME="$2"
 FOLDER="$3"
 
-useradd -m -d "$FOLDER" -s /bin/bash -k /etc/skel "$USERNAME"
+useradd -m -d "$FOLDER" -s /bin/bash -k /etc/skel "$USERNAME";
+run-as $USERNAME -- bash -c 'cd ~ && ls -la > /dev/null';
+run-as $USERNAME -- mkdir -p "$FOLDER"/{.local,.config,.cache,.ssh};
+run-as $USERNAME -- mkdir -p "$FOLDER"/.local/{share,state,lib};
+
 setfacl -R -m u:"$HOSTNAME":rwx "$FOLDER"
 setfacl -d -m u:"$HOSTNAME":rwx "$FOLDER"
 setfacl -R -m u:"$USERNAME":rwx "$FOLDER"
