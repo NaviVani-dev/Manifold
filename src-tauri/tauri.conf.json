@@ -22,7 +22,7 @@
       "freezePrototype": true,
       "assetProtocol": {
         "enable": true,
-        "scope": ["*/**", "$APPCACHE/**"] 
+        "scope": ["*/**", "$APPCACHE/**", "$LOCALDATA/**", "$HOME/.var/**"]
       }
     }
   },

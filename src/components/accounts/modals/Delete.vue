@@ -37,13 +37,16 @@ const deleteFolder = ref<boolean>(true)
 
 const deleteUser = async () => {
   try {
-    if (!accounts.selectedAccount) {
+    const acc = accounts.selectedAccount && accounts.accounts?.[accounts.selectedAccount]
+    if (!acc) {
       new Error("No user detected, how?")
+      return
     }
-    if (accounts.selectedAccount?.username == app.username) {
+    if (acc.username == app.username) {
       new Error("You can't delete your own user.")
+      return
     }
-    invoke("delete_user", { username: accounts.selectedAccount?.username, removeHome: deleteFolder.value })
+    invoke("delete_user", { username: acc.username, removeHome: deleteFolder.value })
   } catch(e) {
     console.error(e)
   } finally {

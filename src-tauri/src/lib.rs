@@ -1,4 +1,6 @@
 // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
+mod applications;
+mod executables;
 mod users;
 mod utils;
 
@@ -15,6 +17,8 @@ pub fn run() {
             users::create_user,
             users::edit_user,
             users::delete_user,
+            applications::get_apps_folder,
+            executables::execute_application,
             utils::open_system_folder
         ])
         .run(tauri::generate_context!())

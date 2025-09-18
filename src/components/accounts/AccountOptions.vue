@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import type { AccountComponent, AccountOption } from '~/types/accounts';
+import type { AccountOption } from '~/types/accounts';
 import {EllipsisVertical, Folder, ExternalLink, Pencil, WandSparkles, Trash } from "lucide-vue-next"
 import { invoke } from '@tauri-apps/api/core';
 import { useAppStore } from '~/store/app';
@@ -30,12 +30,13 @@ import { cn } from '~/lib/utils';
 const {t} = useI18n()
 const app = useAppStore()
 const accounts = useAccountsStore()
-const d = defineProps<AccountComponent>()
+const d = defineProps<{accountIndex: number}>()
+const acc = accounts.accounts?.[d.accountIndex]
 
-const isTheActualUser = app.username == d.data.username
+const isTheActualUser = app.username == acc?.username
 const options : AccountOption[] = [
   { title: t("accounts.open_folder"), icon: Folder, click: openUserFolder },
-  { title: t("accounts.exec_as"), icon: ExternalLink, disabled: isTheActualUser, click: ()=>console.log("") },
+  { title: t("accounts.exec_as"), icon: ExternalLink, disabled: isTheActualUser, click: openAs },
   { title: t("accounts.edit_name"), icon: Pencil, disabled: isTheActualUser, click: editUsername },
   { title: t("accounts.fix_perms"), icon: WandSparkles, disabled: isTheActualUser, click: ()=>console.log("") },
   { title: t("accounts.delete_user"), icon: Trash, disabled: isTheActualUser, click: deleteUser, class: "text-error hover:text-base-content hover:bg-error disabled:text-base-content/20" }
@@ -43,22 +44,28 @@ const options : AccountOption[] = [
 
 function openUserFolder() {
   try {
-    if (d.data?.home) {
-      invoke("open_system_folder", { folder: d.data.home })
+    if (acc?.home) {
+      invoke("open_system_folder", { folder: acc?.home })
     }
   } catch(e) {
     console.error(e)
   }
 }
 
+function openAs() {
+  accounts.selectedAccount = d.accountIndex
+  const modal = document.getElementById("accounts_openas") as HTMLDialogElement
+  modal.showModal()
+}
+
 function editUsername() {
-  accounts.selectedAccount = d.data
+  accounts.selectedAccount = d.accountIndex
   const modal = document.getElementById("accounts_edituser") as HTMLDialogElement
   modal.showModal()
 }
 
 function deleteUser() {
-  accounts.selectedAccount = d.data
+  accounts.selectedAccount = d.accountIndex
   const modal = document.getElementById("accounts_deleteuser") as HTMLDialogElement
   modal.showModal()
 }

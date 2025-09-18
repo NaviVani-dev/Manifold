@@ -28,4 +28,6 @@ keyvalues-parser = "0.1.0"
 tauri-plugin-fs = "2"
 tauri-plugin-dialog = "2"
 whoami = "1.5"
-
+ini-parser = "0.1.2"
+dirs = "6.0.0"
+libc = "0.2"

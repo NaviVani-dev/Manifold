@@ -38,14 +38,21 @@ function validUsername() {
 const closeModal = () => {
   const modal = document.getElementById("accounts_edituser") as HTMLDialogElement
   modal.close()
+  newUsername.value = ""
 }
 
 const editUsername = async () => {
+  const acc = accounts.selectedAccount && accounts.accounts?.[accounts.selectedAccount]
   if (!validUsername()) {
+    new Error("Username is not valid")
     return;
   }
+  if (!acc) {
+    new Error("Couldn't figure out which user to edit")
+    return
+  }
   try {
-    await invoke<string>("edit_user", { newUsername: newUsername.value, oldUsername: accounts.selectedAccount?.username });
+    await invoke<string>("edit_user", { newUsername: newUsername.value, oldUsername: acc.username });
   } catch (err) {
     console.error(err);
   } finally {

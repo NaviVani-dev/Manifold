@@ -6,7 +6,7 @@ import { fetchSteamProfile } from "~/lib/steamapi";
 
 export const useAccountsStore = defineStore("accounts", () => {
   const accounts: Ref<AccountData[] | undefined> = ref();
-  const selectedAccount: Ref<AccountData | undefined> = ref(); // 4 the user modals to know which user was selected
+  const selectedAccount: Ref<number | undefined> = ref(); // 4 the user modals to know which user was selected
   const fetchStatus: Ref<"nothing" | "steam" | "done"> = ref("nothing"); // fetching steam can take a while, incase it takes too lonk we just show sm skeletons
 
   async function fetchAccounts() {

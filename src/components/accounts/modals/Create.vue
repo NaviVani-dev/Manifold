@@ -22,7 +22,7 @@
           </button>
         </div>
         <p class="text-xs text-base-content/50">
-          final folder tip
+          {{ $t("accounts.create.folder_tip", {folder: folder + "/" + (username || "...")}) }}
         </p>
       </div>
 

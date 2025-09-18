@@ -12,3 +12,13 @@ export interface SidebarPage {
   id: ManifoldPage;
   icon: LucideIcon;
 }
+
+export interface ApplicationData {
+  name: string;
+  description?: string;
+  comment?: string;
+  icon?: string;
+  environment_variables?: string;
+  executable?: string;
+  arguments?: string;
+}
